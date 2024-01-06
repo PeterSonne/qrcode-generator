@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/PeterSonne/qrcode-generator/issues"
   },
-  "homepage": "https://github.com/PeterSonne/qrcode-generator#readme"
+  "homepage": "https://github.com/PeterSonne/qrcode-generator#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "husky": "^8.0.3"
+  }
 }
