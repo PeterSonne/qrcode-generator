@@ -1,0 +1,22 @@
+{
+  "name": "qrcode-generator",
+  "version": "0.0.1",
+  "description": "QR Code generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterSonne/qrcode-generator.git"
+  },
+  "keywords": [
+    "qrcode"
+  ],
+  "author": "PeterSonne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PeterSonne/qrcode-generator/issues"
+  },
+  "homepage": "https://github.com/PeterSonne/qrcode-generator#readme"
+}
