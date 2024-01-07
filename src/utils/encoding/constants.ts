@@ -3,3 +3,6 @@ export const REGEX_TESTS: Record<string, RegExp> = {
   ALPHA_NUMERIC: /^[A-Z\d $%*+\-./,:]*$/,
 };
 
+export const CHARSET: Record<string, string> = {
+  ALPHA_NUMERIC: '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:',
+};
