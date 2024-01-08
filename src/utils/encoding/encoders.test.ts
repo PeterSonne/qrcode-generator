@@ -17,4 +17,30 @@ describe('Encoders', () => {
   ])('numeric', ({ input, output }) => {
     expect(encoders.numeric(input)).toEqual(output);
   });
+
+  it.each([
+    {
+      input: 'A1',
+      output: [0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1],
+    },
+    {
+      input: 'A1B2',
+      output: [
+        0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+      ],
+    },
+    {
+      input: 'A1B2C',
+      output: [
+        // A1
+        0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1,
+        // B2
+        0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+        // C
+        0, 0, 1, 1, 0, 0,
+      ],
+    },
+  ])('alpha-numeric', ({ input, output }) => {
+    expect(encoders.alphaNumeric(input)).toEqual(output);
+  });
 });
