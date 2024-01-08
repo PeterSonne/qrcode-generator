@@ -1,3 +1,5 @@
+import { CHARSET } from './constants';
+
 /**
  * Core method to convert given value to bits array
  */
@@ -8,9 +10,12 @@ const encodeToBits = (value: number, bitLength: number) => {
   );
 };
 
+/**
+ * Encodes numeric values into bits
+ */
 const encodeNumeric = (value: string) => {
   // split string into chunks of size 3
-  // as max. bits for numeric is 10 and each
+  // as bits for numeric is 10 and each
   // digit need 3 1/3 bits
   return value
     .match(/\d{1,3}/g)
@@ -20,6 +25,33 @@ const encodeNumeric = (value: string) => {
     .flat();
 };
 
+/**
+ * Encodes alpha-numeric values into bits
+ */
+const encodeAlphaNumeric = (value: string) => {
+  // split string into chunks of size 2
+  // as bits for alpha-numeric is 11 and
+  // each char needs 5 1/2 bits
+  return value
+    .match(/.{1,2}/g)
+    ?.map((chunk) =>
+      encodeToBits(
+        chunk
+          .split('')
+          .reduce(
+            (acc, curr, idx) =>
+              CHARSET.ALPHA_NUMERIC.indexOf(curr) *
+                (chunk.length > 1 && !idx ? CHARSET.ALPHA_NUMERIC.length : 1) +
+              acc,
+            0,
+          ),
+        Math.ceil(chunk.length * 5.5),
+      ),
+    )
+    .flat();
+};
+
 export default {
   numeric: encodeNumeric,
+  alphaNumeric: encodeAlphaNumeric,
 };
