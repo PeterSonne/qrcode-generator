@@ -3,7 +3,7 @@ import { CHARSET } from './constants';
 /**
  * Core method to convert given value to bits array
  */
-const encodeToBits = (value: number, bitLength: number) => {
+export const encodeToBits = (value: number, bitLength: number) => {
   // TODO: check if input params valid
   return [...new Array(bitLength)].map(
     (_, idx) => (value >>> (bitLength - idx - 1)) & 1,
@@ -13,7 +13,7 @@ const encodeToBits = (value: number, bitLength: number) => {
 /**
  * Encodes numeric values into bits
  */
-const encodeNumeric = (value: string) => {
+export const encodeNumeric = (value: string) => {
   // split string into chunks of size 3
   // as bits for numeric is 10 and each
   // digit need 3 1/3 bits
@@ -28,7 +28,7 @@ const encodeNumeric = (value: string) => {
 /**
  * Encodes alpha-numeric values into bits
  */
-const encodeAlphaNumeric = (value: string) => {
+export const encodeAlphaNumeric = (value: string) => {
   // split string into chunks of size 2
   // as bits for alpha-numeric is 11 and
   // each char needs 5 1/2 bits
@@ -49,9 +49,4 @@ const encodeAlphaNumeric = (value: string) => {
       ),
     )
     .flat();
-};
-
-export default {
-  numeric: encodeNumeric,
-  alphaNumeric: encodeAlphaNumeric,
 };

@@ -1,4 +1,4 @@
-import encoders from './encoders';
+import { encodeAlphaNumeric, encodeNumeric } from './encoders';
 
 describe('Encoders', () => {
   it.each([
@@ -15,7 +15,7 @@ describe('Encoders', () => {
       output: [0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1],
     },
   ])('numeric', ({ input, output }) => {
-    expect(encoders.numeric(input)).toEqual(output);
+    expect(encodeNumeric(input)).toEqual(output);
   });
 
   it.each([
@@ -41,6 +41,6 @@ describe('Encoders', () => {
       ],
     },
   ])('alpha-numeric', ({ input, output }) => {
-    expect(encoders.alphaNumeric(input)).toEqual(output);
+    expect(encodeAlphaNumeric(input)).toEqual(output);
   });
 });

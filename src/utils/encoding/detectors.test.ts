@@ -1,5 +1,5 @@
 import { CHARSET } from './constants';
-import detectors from './detectors';
+import { isAlphaNumeric, isNumeric } from './detectors';
 
 describe('Encoding detectors', () => {
   const numericTestValues = [
@@ -24,35 +24,35 @@ describe('Encoding detectors', () => {
 
   describe('NUMERICS detector', () => {
     it.each(numericTestValues)('accepts NUMERIC input', (testString) => {
-      expect(detectors.isNumeric(testString)).toBeTruthy();
+      expect(isNumeric(testString)).toBeTruthy();
     });
 
     it.each(alphaNumericTestValues)(
       'rejects ALPHA_NUMERIC input',
       (testString) => {
-        expect(detectors.isNumeric(testString)).toBeFalsy();
+        expect(isNumeric(testString)).toBeFalsy();
       },
     );
 
     it.each(byteTestValues)('rejects BYTE input', (testString) => {
-      expect(detectors.isNumeric(testString)).toBeFalsy();
+      expect(isNumeric(testString)).toBeFalsy();
     });
   });
 
   describe('ALPHA_NUMERICS detector', () => {
     it.each(numericTestValues)('accepts NUMERIC input', (testString) => {
-      expect(detectors.isAlphaNumeric(testString)).toBeTruthy();
+      expect(isAlphaNumeric(testString)).toBeTruthy();
     });
 
     it.each(alphaNumericTestValues)(
       'accepts ALPHA_NUMERIC input',
       (testString) => {
-        expect(detectors.isAlphaNumeric(testString)).toBeTruthy();
+        expect(isAlphaNumeric(testString)).toBeTruthy();
       },
     );
 
     it.each(byteTestValues)('rejects BYTE input', (testString) => {
-      expect(detectors.isAlphaNumeric(testString)).toBeFalsy();
+      expect(isAlphaNumeric(testString)).toBeFalsy();
     });
   });
 });
