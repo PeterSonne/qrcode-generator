@@ -1,3 +1,4 @@
+import { MODE } from '../../types';
 import { CHARSET } from './constants';
 
 /**
@@ -49,4 +50,15 @@ export const encodeAlphaNumeric = (value: string) => {
       ),
     )
     .flat();
+};
+
+/**
+ * Provides encoder based on MODE selected
+ */
+export const encoders = {
+  [MODE.NUMERIC]: encodeNumeric,
+  [MODE.ALPHA_NUMERIC]: encodeAlphaNumeric,
+  [MODE.BYTE]: () => {
+    /* dummy for now */
+  },
 };
