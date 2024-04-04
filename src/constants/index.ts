@@ -1,4 +1,4 @@
-import { MODE } from '../types';
+import { ERROR_CORRECTION_LEVEL, MODE } from '../types';
 
 export const CHARACTER_INDICATORS_COUNT_NUMBERIC = [10, 12, 14];
 export const CHARACTER_INDICATORS_COUNT_ALPHA_NUMBERIC = [9, 11, 13];
@@ -18,3 +18,7 @@ export const MODE_PROPERTIES = {
     lengthCharacterIndicator: CHARACTER_INDICATORS_COUNT_NUMBERIC,
   },
 };
+
+export const ERROR_CORRECTION_CHARACTERISTICS = [
+  { [ERROR_CORRECTION_LEVEL.LOW]: 7 },
+];
